@@ -1,11 +1,13 @@
-// Colours
-$label-colour: #ccc;
-$toggle-colour: #f90;
+// Colors
+$label-colour: #bbb;
+$disabled-colour: #ddd;
+$toggle-colour: #2F855A;
 $white: #fff;
+$focus-color: #ff0;
 
-// Styles
 .toggle-switch {
   position: relative;
+  margin-right: 10px;
   width: 75px;
   display: inline-block;
   vertical-align: middle;
@@ -23,6 +25,15 @@ $white: #fff;
     border: 0 solid $label-colour;
     border-radius: 20px;
     margin: 0;
+    &:focus {
+      outline: none;
+      > span {
+        box-shadow: 0 0 2px 5px $focus-color;
+      }
+    }
+    > span:focus {
+      outline: none;
+    }
   }
   &-inner {
     display: block;
@@ -51,10 +62,10 @@ $white: #fff;
     }
   }
   &-disabled {
-    background-color: $label-colour;
+    background-color: $disabled-colour;
     cursor: not-allowed;
     &:before {
-      background-color: $label-colour;
+      background-color: $disabled-colour;
       cursor: not-allowed;
     }
   }
@@ -113,3 +124,4 @@ $white: #fff;
     transform: scale(0.75);
   }
 }
+

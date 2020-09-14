@@ -1,21 +1,27 @@
-# Implementing a Toggle Switch in React JS as a Reusable Component
+# Create a Toggle Switch in React as a Reusable Component
 
-![Blog Logo](https://i.imgur.com/9MzxExs.png)
+An iOS-inspired toggle switch using React.
 
-## Introduction
+This code accompanies the following tutorial: [Create a Toggle Switch in React as a Reusable Component](https://www.sitepoint.com/react-toggle-switch-reusable-component/)
 
-This is the supporting GitHub Repository for the article [Implementing a Toggle Switch in React JS as a Reusable Component](https://blog.praveen.science/) that I wrote recently. We are going to create a toggle switch (or that is what they call) using React JS and we will be using React components for this. In this article, we will see how to build a customised toggle switch component with React JS.
+## Requirements
 
-At the end of the article, we would have built a simple demo React App that uses our custom toggle switch component. When we are creating web applications, it usually involves working out the best for user interactions. One of the major ways of making provision for user interactions is through forms. Different form components exist for taking different kinds of input from the user. Here we will be looking at how to build an iOS inspired Toggle Switch control component.
+* [A working React project](https://reactjs.org/)
 
-### Contents
+## Installation Steps (if applicable)
 
-![Contents](https://i.imgur.com/IPV5AUq.png)
+1. Clone repo
+2. Add files to existing React project
+3. Include `ToggleSwitch` component like so: `<ToggleSwitch id={id} checked={value} onChange={checked => setValue(checked)}} />`
 
-## Contributing
+## License
 
-Feel free to create Pull Requests. I'll try to be as much as responsive as possible and approve them.
+SitePoint's code archives and code examples are licensed under the MIT license.
 
-## Issues
+Copyright © 2020 SitePoint
 
-Please use the [Issue Tracker](https://github.com/praveenscience/ToggleSwitch/issues) to raise issues.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

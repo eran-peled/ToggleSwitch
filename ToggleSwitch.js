@@ -1,74 +1,74 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import './ToggleSwitch.css';
 
 /*
 Toggle Switch Component
-Note: id is required for ToggleSwitch component to function. Name, currentValue, defaultChecked, Small and onChange are optional.
-Usage: <ToggleSwitch id="id" onChange={function (e) { console.log("Checkbox Current State: " + e.target.checked); }} />
+Note: id, checked and onChange are required for ToggleSwitch component to function.
+The props name, small, disabled and optionLabels are optional.
+Usage: <ToggleSwitch id={id} checked={value} onChange={checked => setValue(checked)}} />
 */
 
-class ToggleSwitch extends Component {
-  state = {
-    checked: this.props.defaultChecked
-  };
-  onChange = e => {
-    this.setState({
-      checked: e.target.checked
-    });
-    if (typeof this.props.onChange === "function") this.props.onChange();
-  };
-  render() {
-    return (
-      <div
-        className={"toggle-switch" + (this.props.Small ? " small-switch" : "")}
-      >
-        <input
-          type="checkbox"
-          name={this.props.Name}
-          className="toggle-switch-checkbox"
-          id={this.props.id}
-          checked={this.props.currentValue}
-          defaultChecked={this.props.defaultChecked}
-          onChange={this.onChange}
-          disabled={this.props.disabled}
+const ToggleSwitch = ({ id, name, checked, onChange, optionLabels, small, disabled }) => {
+  function handleKeyPress(e){
+    if (e.keyCode !== 32) return;
+
+    e.preventDefault();
+    onChange(!checked)
+  }
+
+  return (
+    <div className={"toggle-switch" + (small ? " small-switch" : "")}>
+      <input
+        type="checkbox"
+        name={name}
+        className="toggle-switch-checkbox"
+        id={id}
+        checked={checked}
+        onChange={e => onChange(e.target.checked)}
+        disabled={disabled}
         />
-        {this.props.id ? (
-          <label className="toggle-switch-label" htmlFor={this.props.id}>
+        {id ? (
+          <label className="toggle-switch-label"
+                 htmlFor={id}
+                 tabIndex={ disabled ? -1 : 1 }
+                 onKeyDown={ (e) => { handleKeyPress(e) }}>
             <span
               className={
-                this.props.disabled
+                disabled
                   ? "toggle-switch-inner toggle-switch-disabled"
                   : "toggle-switch-inner"
               }
-              data-yes={this.props.Text[0]}
-              data-no={this.props.Text[1]}
+              data-yes={optionLabels[0]}
+              data-no={optionLabels[1]}
+              tabIndex={-1}
             />
             <span
               className={
-                this.props.disabled
-                  ? "toggle-switch-switch toggle-switch-disabled"
-                  : "toggle-switch-switch"
+              disabled
+                ? "toggle-switch-switch toggle-switch-disabled"
+                : "toggle-switch-switch"
               }
+              tabIndex={-1}
             />
           </label>
         ) : null}
       </div>
     );
-  }
-  // Set text for rendering.
-  static defaultProps = {
-    Text: ["Yes", "No"]
-  };
 }
+
+// Set optionLabels for rendering.
+ToggleSwitch.defaultProps = {
+  optionLabels: ["Yes", "No"],
+};
 
 ToggleSwitch.propTypes = {
   id: PropTypes.string.isRequired,
-  Text: PropTypes.string.isRequired,
-  Name: PropTypes.string,
-  onChange: PropTypes.func,
-  defaultChecked: PropTypes.bool,
-  Small: PropTypes.bool,
-  currentValue: PropTypes.bool,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  optionLabels: PropTypes.array,
+  small: PropTypes.bool,
   disabled: PropTypes.bool
 };
 
