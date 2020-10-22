@@ -11,10 +11,28 @@ This code accompanies the following tutorial: [Create a Toggle Switch in React a
 ## Installation Steps (if applicable)
 
 1. Clone repo
+
 2. Add files to existing React project
-3. Include `ToggleSwitch` component like so: `<ToggleSwitch id={id} checked={value} onChange={checked => setValue(checked)}} />`
+
+3. Include `ToggleSwitch` component like so: 
+
+
+   ```js
+
+   import React, { useState } from 'react';
+
+   export default function App() {
+     const [checked, setChecked] = useState(true);
+
+     return (
+       <ToggleSwitch id="switch" checked={checked} onChange={checked => setChecked(checked)} />`
+     );
+   }
+
+   ```
 
 ## License
+
 
 SitePoint's code archives and code examples are licensed under the MIT license.
 
@@ -25,3 +43,4 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
